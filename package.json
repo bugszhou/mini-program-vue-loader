@@ -1,0 +1,77 @@
+{
+  "name": "mini-program-vue-loader",
+  "version": "0.0.1",
+  "description": "小程序vue格式解析器",
+  "main": "./dist/index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "lint": "eslint --ext .ts --ext .tsx src -c .eslintrc.js",
+    "fix": "npm run lint --fix",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:report": "jest --coverage --no-cache",
+    "test:prod": "npm run lint && npm run test -- --no-cache",
+    "prebuild": "rimraf dist",
+    "dev": "rollup -c rollup.config.ts -w",
+    "build": "tsc --module commonjs && rollup -c rollup.config.ts",
+    "precommit": "lint-staged",
+    "commit": "git-cz",
+    "husky": "node node_modules/husky/lib/installer/bin install",
+    "prepublish": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bugszhou/mini-program-vue-loader.git"
+  },
+  "keywords": [
+    "mini",
+    "program",
+    "vue",
+    "loader",
+    "webpack"
+  ],
+  "author": "yiri.zhou",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bugszhou/mini-program-vue-loader/issues"
+  },
+  "homepage": "https://github.com/bugszhou/mini-program-vue-loader#readme",
+  "types": "typings/index.d.ts",
+  "dependencies": {
+    "@types/node": "^15.6.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^19.0.0",
+    "@rollup/plugin-eslint": "^8.0.1",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^13.0.0",
+    "@typescript-eslint/eslint-plugin": "^4.24.0",
+    "@typescript-eslint/parser": "^4.24.0",
+    "commitlint": "^12.1.4",
+    "eslint": "^7.27.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.23.3",
+    "eslint-plugin-prettier": "^3.4.0",
+    "git-cz": "^4.7.6",
+    "husky": "^4.3.8",
+    "jest": "^26.6.3",
+    "lint-staged": "^11.0.0",
+    "lodash.camelcase": "^4.3.0",
+    "prettier": "^2.3.0",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.49.0",
+    "rollup-plugin-sourcemaps": "^0.6.3",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.30.0",
+    "ts-jest": "^26.5.6",
+    "ts-node": "^10.0.0",
+    "typescript": "^4.2.4"
+  },
+  "lint-staged": {
+    "{src,test}/**/*.ts": [
+      "prettier --write"
+    ]
+  }
+}

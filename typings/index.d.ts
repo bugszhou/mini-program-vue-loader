@@ -1,0 +1,3 @@
+interface IMiniProgramVueLoader {
+  demo: string;
+}
